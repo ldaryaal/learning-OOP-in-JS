@@ -79,3 +79,25 @@ const function2 = Function('a','b','return a + b')
 
 console.log(function1)
 console.log(function2)
+
+// prototype 
+
+Client.prototype.getInfo = function(){
+    //write your code here`
+    // stil should use this for coding and we only need to know the entry 
+    // params & this.param1 ,.... to work with this`
+    return ` name: ${this.name}, balance: ${this.balance}, membership: ${this.membership()}`
+
+}
+// withdraw money
+Client.prototype.withdraw = function (amount) {
+    return this.balance -= amount
+    
+}
+//adding money to account
+Client.prototype.deposite = function(amount){
+    return this.balance += amount
+}
+
+person1.withdraw(200)
+person2.deposite(1000)
