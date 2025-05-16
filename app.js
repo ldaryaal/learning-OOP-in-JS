@@ -77,8 +77,8 @@ const function1 = function(a,b){
 
 const function2 = Function('a','b','return a + b')
 
-console.log(function1)
-console.log(function2)
+console.log(function1(2,3))
+console.log(function2(2,3))
 
 // prototype 
 
@@ -101,3 +101,15 @@ Client.prototype.deposite = function(amount){
 
 person1.withdraw(200)
 person2.deposite(1000)
+
+//premium account for special clients
+let Business = function(name, balance, phone, category){
+    Client.call(this, name, balance)
+    this.phone = phone
+    this.category = category
+}
+Business.prototype = Object.create(Client.prototype)
+Business.prototype.constructor = Business
+
+const business1 = new Business('Darya', 20000000, 3312770000, 'Developer')
+console.log(business1.getInfo(),business1)
